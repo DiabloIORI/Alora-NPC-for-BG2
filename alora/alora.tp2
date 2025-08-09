@@ -1,7 +1,7 @@
 BACKUP ~alora/backup~
 //AUTHOR ~Raven~
 SUPPORT ~CoM at http://www.baldursgatemods.com/forums/index.php?board=13.0~
-VERSION ~2.0~
+VERSION ~2.1~
 
 README ~alora/readme/alora-readme-%LANGUAGE%.html~ ~alora/readme/alora-readme.html~
 
@@ -86,7 +86,7 @@ LANGUAGE ~Polish (by Aristo)~
  *  Alora NPC for BGII  *
  * ==================== */
 BEGIN @0
-DESIGNATED 0 LABEL ~alora_npc_for_bg2~
+DESIGNATED 0 LABEL ~Raven-alora_npc_for_bg2~
 REQUIRE_PREDICATE GAME_INCLUDES ~tob~ @1  // ~You must have ToB, BGT, BG2:EE or EET installed to install the Alora NPC mod.~
 
 

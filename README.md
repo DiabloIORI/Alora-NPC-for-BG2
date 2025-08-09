@@ -84,9 +84,13 @@ She will have at least 2 banters with all members of the party more on some othe
 
 ## <a name="versions" id="versions"></a>Version History
 
-#### Incoming next Version &nbsp;(..., 20..)
 
-- Included global `LABELS` to support AL|EN's "Project Infinity".
+#### Version 2.1 &nbsp;(August, 2025)
+
+- Polish translation added by Aristo.
+- Russian translation updated by klichko86.
+- WeiduModPackager.
+- ITEM_USE addition [for CMalora DeathVar](https://github.com/GwendolyneFreddy/Alora-NPC-for-BG2/issues/4).
 
 
 #### Version 2.0 &nbsp;(January 23, 2021)
