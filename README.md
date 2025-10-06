@@ -1,9 +1,12 @@
-![Latest Release](https://img.shields.io/github/v/release/GwendolyneFreddy/Alora-NPC-for-BG2?include_prereleases&color=gold)<a name="top" id="top"> </a>
-![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/GwendolyneFreddy/Alora-NPC-for-BG2?color=gold)
-![Platform](https://img.shields.io/static/v1?label=platforms&message=windows%20%7C%20macOS%20%7C%20linux%20%7C%20Project%20Infinity&color=informational)
-![Language](https://img.shields.io/static/v1?label=language&message=English%20%7C%20French%20%7C%20German%20%7C%20Russian&color=limegreen)
+[![Release](https://img.shields.io/github/v/release/The-Gate-Project/Alora-NPC-for-BG2?include_prereleases&color=41788a)](https://github.com/The-Gate-Project/Alora-NPC-for-BG2/releases)
+[![Published](https://img.shields.io/github/release-date-pre/The-Gate-Project/Alora-NPC-for-BG2?display_date=published_at&label=published&color=014a69)](https://github.com/The-Gate-Project/Alora-NPC-for-BG2/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/The-Gate-Project/Alora-NPC-for-BG2/total?color=41788a)](https://github.com/The-Gate-Project/Alora-NPC-for-BG2/releases)
 
-![Supported games](https://img.shields.io/static/v1?label=supported%20games&message=BGII:ToB%20%7C%20BGT%20%7C%20BG2%3AEE%20%7C%20EET&color=dodgerblue)
+[![Language](https://img.shields.io/badge/language-English%20%7C%20French%20%7C%20German%20%7C%20Polish%20%7C%20Russian-014a69)](https://github.com/The-Gate-Project/Alora-NPC-for-BG2/releases)
+[![Games](https://img.shields.io/badge/games-BG2:ToB%20%7C%20BGT%20%7C%20BG2:EE%20%7C%20EET-41788a)](https://github.com/The-Gate-Project/Alora-NPC-for-BG2/releases)
+
+[![Platform](https://img.shields.io/badge/platform-Windows%20%a0%20macOS%20%a0%20Linux%20%a0%20Project%20Infinity-014a69)](https://github.com/The-Gate-Project/Alora-NPC-for-BG2/releases)
+
 <div align="center"><h1>Alora NPC for BGII</h1>
 
 <h3>A TeamBG mod Baldur's Gate II: ToB (original and EE games),<br>
@@ -12,22 +15,17 @@ Baldur's Gate Trilogy and EET<h3>
 </div><br>
 
 
-**Original Author:** <a href="http://www.baldursgatemods.com/forums/index.php?action=profile;u=3">Raven</a>  
-**Mod Website and Forum:** <a href="http://www.baldursgatemods.com/forums/index.php?board=13.0">Alora</a><br>
+**Original Author:** **Raven**  
+
+**Mod Website and Forum:** **TeamBG**
 
 ## 
 
-**Note:** This mod is officially released at <a href="http://www.baldursgatemods.com/forums/index.php">TeamBG.com</a>. I updated it and gathered classical and EE versions in one single package with Solaufein approval.<br>
+**Note:** This mod is officially released at **TeamBG.com**. I updated it and gathered classical and EE versions in one single package with Solaufein approval.<br>
 
 ## 
 
-![GitHub contributors](https://img.shields.io/github/contributors/GwendolyneFreddy/Alora-NPC-for-BG2?color=blueviolet&style=plastic) [![Contributors Display](https://badges.pufler.dev/contributors/GwendolyneFreddy/Alora-NPC-for-BG2?size=30&padding=5&bots=true)](https://badges.pufler.dev)
-
-## 
-
-[Read the mod's readme](https://gwendolynefreddy.github.io/docs/alora/alora-readme.html)
-
-[Download the mod at TeamBG](http://www.baldursgatemods.com/forums/index.php?action=downloads;sa=view;down=195)<br>
+[Read the mod's readme](https://htmlpreview.github.io/?https://github.com/The-Gate-Project/Alora-NPC-for-BG2/blob/main/alora/readme/alora-readme.html)
 
 <hr>
 
@@ -90,7 +88,9 @@ She will have at least 2 banters with all members of the party more on some othe
 - Polish translation added by Aristo.
 - Russian translation updated by klichko86.
 - WeiduModPackager.
-- ITEM_USE addition [for CMalora DeathVar](https://github.com/GwendolyneFreddy/Alora-NPC-for-BG2/issues/4).
+- ITEM_USE addition for CMSC88.itm (CMalora DeathVar).
+- Use a copy [BG1 MISC88.itm for CMSC88.itm](https://github.com/GwendolyneFreddy/Alora-NPC-for-BG2/issues/4).
+- Included global `LABELS` to support AL|EN's "Project Infinity" (By Freddy Gwendo).
 
 
 #### Version 2.0 &nbsp;(January 23, 2021)

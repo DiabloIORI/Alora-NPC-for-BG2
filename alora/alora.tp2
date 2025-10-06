@@ -195,7 +195,13 @@ COPY ~alora/cre/alora25.cre~ ~override~
 
 // See below nuances for Tobex version ! (And look at ITEM_USE.2DA in Near Infinity)
 
-COPY_EXISTING ~MISC88.itm~ ~override/CMSC88.itm~
+
+COPY ~alora/cre/CMSC88.itm~ ~override~
+	SAY NAME1 #10229
+	SAY NAME2 #10229
+    SAY UNIDENTIFIED_DESC #10231
+    SAY DESC #10231
+
 
 ACTION_IF (GAME_IS ~bg2ee eet~) BEGIN
 PRINT ~EE item description

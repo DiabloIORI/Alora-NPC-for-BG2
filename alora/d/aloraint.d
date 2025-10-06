@@ -73,119 +73,119 @@ DO ~SetGlobal("CMAlorakid1","LOCALS",1)~
 EXIT
 
 I_C_T BODHI 12 AloraBodhi
-== CMALORAJ IF ~IsValidForPartyDialog("CMAlora")~ THEN @25
+== CMALORAJ IF ~IsValidForPartyDialogue("CMAlora")~ THEN @25
 END
 
 I_C_T AERIE 41 AloraAerieIllusion
-== CMALORAJ IF ~IsValidForPartyDialog("CMAlora")~ THEN @26
+== CMALORAJ IF ~IsValidForPartyDialogue("CMAlora")~ THEN @26
 END
 
 I_C_T ANOMENJ 150 AloraAnomen1
-== CMALORAJ IF ~IsValidForPartyDialog("CMAlora")~ THEN
+== CMALORAJ IF ~IsValidForPartyDialogue("CMAlora")~ THEN
 @27
 END
 
 I_C_T IMOEN2 22 AloraDontLeaveImoen
-== CMALORAJ IF ~IsValidForPartyDialog("CMAlora")~ THEN
+== CMALORAJ IF ~IsValidForPartyDialogue("CMAlora")~ THEN
 @28
 END
 
 I_C_T JAHEIRAJ 112 AloraQuestionsJah
-== CMALORAJ IF ~IsValidForPartyDialog("CMAlora")~ THEN
+== CMALORAJ IF ~IsValidForPartyDialogue("CMAlora")~ THEN
 @29
 END
 
 I_C_T ISAEA 28 AloraNaliaKidnap
-== CMALORAJ IF ~IsValidForPartyDialog("CMAlora")~ THEN
+== CMALORAJ IF ~IsValidForPartyDialogue("CMAlora")~ THEN
 @30
 =
 @31
 END
 
 I_C_T HENDAK 4 AloraHendak
-== CMALORAJ IF ~IsValidForPartyDialog("CMAlora")~ THEN
+== CMALORAJ IF ~IsValidForPartyDialogue("CMAlora")~ THEN
 @32
 END
 
 I_C_T SURLY 17 AloraSurly
-== CMALORAJ IF ~IsValidForPartyDialog("CMAlora")~ THEN
+== CMALORAJ IF ~IsValidForPartyDialogue("CMAlora")~ THEN
 @33
 END
 
 I_C_T SAMIA 24 AloraSamia
-== CMALORAJ   IF ~IsValidForPartyDialog("CMAlora")~ THEN
+== CMALORAJ   IF ~IsValidForPartyDialogue("CMAlora")~ THEN
  @34
 =
 @35
-== EDWINJ IF ~IsValidForPartyDialog("Edwin")~ THEN
+== EDWINJ IF ~IsValidForPartyDialogue("Edwin")~ THEN
 @36
 END
 
 
 I_C_T RENAL 30 AloraRenal1
-== CMALORAJ IF ~IsValidForPartyDialog("CMAlora")~ THEN
+== CMALORAJ IF ~IsValidForPartyDialogue("CMAlora")~ THEN
 @40
 END
 
 I_C_T RENAL 23 AloraRena2
-== CMALORAJ IF ~IsValidForPartyDialog("CMAlora")~ THEN
+== CMALORAJ IF ~IsValidForPartyDialogue("CMAlora")~ THEN
 @41
 END
 
 I_C_T RENAL 69 AloraRenal3
-== CMALORAJ IF ~IsValidForPartyDialog("CMAlora")~ THEN
+== CMALORAJ IF ~IsValidForPartyDialogue("CMAlora")~ THEN
 @42
 END
 
 I_C_T ARAN 4 AloraAran1
-== CMALORAJ IF ~IsValidForPartyDialog("CMAlora")~ THEN
+== CMALORAJ IF ~IsValidForPartyDialogue("CMAlora")~ THEN
 @43
 END
 
 I_C_T ARAN 18 AloraAranDefectors
-== CMALORAJ IF ~IsValidForPartyDialog("CMAlora")~ THEN
+== CMALORAJ IF ~IsValidForPartyDialogue("CMAlora")~ THEN
 @44
 END
 
 I_C_T ARAN 40 AloraAran2
-== CMALORAJ IF ~IsValidForPartyDialog("CMAlora")~ THEN
+== CMALORAJ IF ~IsValidForPartyDialogue("CMAlora")~ THEN
 @45
 END
 
 I_C_T UDSILVER 9 AloraAdalonAmazed
-== CMALORAJ IF ~IsValidForPartyDialog("CMAlora")~ THEN @46
+== CMALORAJ IF ~IsValidForPartyDialogue("CMAlora")~ THEN @46
 END
 
 I_C_T UDSILVER 53 AloraAdalonDrow
-== CMALORAJ IF ~IsValidForPartyDialog("CMAlora")~ THEN @47
+== CMALORAJ IF ~IsValidForPartyDialogue("CMAlora")~ THEN @47
 END
 
 I_C_T YOSHJ 113 AloraDamnedTraitor
-== CMALORAJ IF ~IsValidForPartyDialog("CMAlora")~ THEN @48
+== CMALORAJ IF ~IsValidForPartyDialogue("CMAlora")~ THEN @48
 END
 
 I_C_T HELLJON 7 AloraIrenicus
-== CMALORAJ IF ~IsValidForPartyDialog("CMAlora")~ THEN @49
-== HELLJON IF ~IsValidForPartyDialog("CMAlora")~ THEN @50
+== CMALORAJ IF ~IsValidForPartyDialogue("CMAlora")~ THEN @49
+== HELLJON IF ~IsValidForPartyDialogue("CMAlora")~ THEN @50
 END
 
 I_C_T HELLJON 8 AloraIrenicus
-== CMALORAJ IF ~IsValidForPartyDialog("CMAlora")~ THEN @49
-== HELLJON IF ~IsValidForPartyDialog("CMAlora")~ THEN @50
+== CMALORAJ IF ~IsValidForPartyDialogue("CMAlora")~ THEN @49
+== HELLJON IF ~IsValidForPartyDialogue("CMAlora")~ THEN @50
 END
 
 I_C_T HELLJON 9 AloraIrenicus
-== CMALORAJ IF ~IsValidForPartyDialog("CMAlora")~ THEN @49
-== HELLJON IF ~IsValidForPartyDialog("CMAlora")~ THEN @50
+== CMALORAJ IF ~IsValidForPartyDialogue("CMAlora")~ THEN @49
+== HELLJON IF ~IsValidForPartyDialogue("CMAlora")~ THEN @50
 END
 
 I_C_T HELLJON 10 AloraIrenicus
-== CMALORAJ IF ~IsValidForPartyDialog("CMAlora")~ THEN @49
-== HELLJON IF ~IsValidForPartyDialog("CMAlora")~ THEN @50
+== CMALORAJ IF ~IsValidForPartyDialogue("CMAlora")~ THEN @49
+== HELLJON IF ~IsValidForPartyDialogue("CMAlora")~ THEN @50
 END
 
 I_C_T PLAYER1 16 AloraIrenicusDead
-== CMALORAJ IF ~IsValidForPartyDialog("CMAlora")~ THEN @51
+== CMALORAJ IF ~IsValidForPartyDialogue("CMAlora")~ THEN @51
 END
 
 APPEND PLAYER1

@@ -538,16 +538,16 @@ Global("CMAloraMinscBoo","LOCALS",0)~ THEN BMINSC missingboo
 == BCMALOR @225
 == BMINSC @226
 == BJAN IF ~InParty("Jan")~ THEN @227
-== BKELDOR IF ~IsValidForPartyDialog("Keldorn")~ THEN @228
-== BVICONI IF ~IsValidForPartyDialog("Viconia")~ THEN @229
-== BMINSC  IF ~IsValidForPartyDialog("Viconia")~ THEN @230
-== BVICONI IF ~IsValidForPartyDialog("Viconia")~ THEN @231
-== BMINSC IF ~IsValidForPartyDialog("Viconia")~ THEN @232
-== BMAZZY IF ~IsValidForPartyDialog("Mazzy")~ THEN @233
-== BANOMEN IF ~IsValidForPartyDialog("Anomen")~ THEN @234
-== BCERND IF ~IsValidForPartyDialog("Cernd")~ THEN @235
-== BMINSC IF ~IsValidForPartyDialog("Cernd")~ THEN @236
-== BCERND IF ~IsValidForPartyDialog("Cernd")~ THEN @237
+== BKELDOR IF ~IsValidForPartyDialogue("Keldorn")~ THEN @228
+== BVICONI IF ~IsValidForPartyDialogue("Viconia")~ THEN @229
+== BMINSC  IF ~IsValidForPartyDialogue("Viconia")~ THEN @230
+== BVICONI IF ~IsValidForPartyDialogue("Viconia")~ THEN @231
+== BMINSC IF ~IsValidForPartyDialogue("Viconia")~ THEN @232
+== BMAZZY IF ~IsValidForPartyDialogue("Mazzy")~ THEN @233
+== BANOMEN IF ~IsValidForPartyDialogue("Anomen")~ THEN @234
+== BCERND IF ~IsValidForPartyDialogue("Cernd")~ THEN @235
+== BMINSC IF ~IsValidForPartyDialogue("Cernd")~ THEN @236
+== BCERND IF ~IsValidForPartyDialogue("Cernd")~ THEN @237
 == BMINSC @238
 == BCMALOR @239
 = @240
