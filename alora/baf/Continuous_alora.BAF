@@ -1,0 +1,45 @@
+
+IF
+	Global("Continuous_BG2_Alora","MYAREA",0)
+	OR(2)
+		BeenInParty("%CMALORA%")
+		Exists("%CMALORA%")
+	!Dead("%CMALORA%")
+//	!InPartyAllowDead("%CMALORA%")
+//	!InParty("%CMALORA%")
+//	!InMyArea("%CMALORA%")
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		ActionOverride("%CMALORA%",ChangeAIScript("cmalora",OVERRIDE))
+		SetGlobal("Continuous_BG2_Alora","MYAREA",1)
+		ActionOverride("%CMALORA%",SetGlobal("Continuous_BG2_Alora","LOCALS",1))
+		MoveGlobal("AR0702","%CMALORA%",[360.350])
+		ApplySpellRES("bdresurr","%CMALORA%")
+		SmallWait(1)
+		ReallyForceSpellDeadRES("bdrejuve","%CMALORA%")
+		ChangeEnemyAlly("%CMALORA%",NEUTRAL)
+		ChangeSpecifics("%CMALORA%",ALLIES)
+		ActionOverride("%CMALORA%",SetNumTimesTalkedTo(0))
+//		ActionOverride("%CMALORA%",SetGlobal("bd_joined","locals",0)) // SoD
+//		ActionOverride("%CMALORA%",ChangeAIScript("",CLASS))
+//		ActionOverride("%CMALORA%",ChangeAIScript("",RACE))
+//		ActionOverride("%CMALORA%",ChangeAIScript("",GENERAL))
+//		ActionOverride("%CMALORA%",ChangeAIScript("",DEFAULT))
+		ActionOverride("%CMALORA%",SetDialog("CMALORA"))
+		GiveItemCreate("LEAT05","%CMALORA%",0,0,0)
+		GiveItemCreate("BOW06","%CMALORA%",0,0,0)
+		GiveItemCreate("SW1H09","%CMALORA%",0,0,0)
+		GiveItemCreate("RING10","%CMALORA%",0,0,0)
+		GiveItemCreate("AROW01","%CMALORA%",40,0,0)
+		GiveItemCreate("AROW02","%CMALORA%",15,0,0)
+		GiveItemCreate("POTN10","%CMALORA%",5,0,0)
+		GiveItemCreate("POTN17","%CMALORA%",5,0,0)
+		ActionOverride("%CMALORA%",SetItemFlags("LEAT05",IDENTIFIED,TRUE))
+		ActionOverride("%CMALORA%",SetItemFlags("BOW06",IDENTIFIED,TRUE))
+		ActionOverride("%CMALORA%",SetItemFlags("SW1H09",IDENTIFIED,TRUE))
+		%XEquipItem_armor%
+		%XEquipItem_sword%
+		SetInterrupt(TRUE)
+		Continue()
+END

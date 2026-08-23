@@ -1,6 +1,6 @@
 IF
     Global("StartEndBios","AR6200",1)
-    InParty("CMAlora")
+    InParty("%CMALORA%")
     Global("CMAloraBio","GLOBAL",0)
 THEN
     RESPONSE #100

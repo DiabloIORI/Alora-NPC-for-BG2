@@ -83,7 +83,7 @@ END
 BEGIN ~CMALO25J~
 
 I_C_T BAERIE25 159 Alora_AerieBaby
-== CMALO25J IF ~InParty("CMAlora")~ THEN
+== CMALO25J IF ~InParty("%CMALORA%")~ THEN
 @25
 END
 
@@ -92,7 +92,7 @@ BEGIN ~BCMALO25~
 
 IF ~AreaCheck("AR5000")
 See(Player1)
-!StateCheck(Player1,STATE_SLEEPING)
+!StateCheck(Player1,CD_STATE_NOTVALID)
 Global("TalkedSarMel01","GLOBAL",1)
 Global("PcAloraChatTob1","LOCALS",0)~ THEN BEGIN alora_pc1
   SAY @26
@@ -137,7 +137,7 @@ END
 
 CHAIN IF ~InParty("Sarevok")
 See("Sarevok")
-!StateCheck("Sarevok",STATE_SLEEPING)
+!StateCheck("Sarevok",CD_STATE_NOTVALID)
 Global("AloraSare","LOCALS",0)~ THEN BCMALO25 alora_sare1
 @40 DO ~SetGlobal("AloraSare","LOCALS",1)~
 == BSAREV25 @41
@@ -148,7 +148,7 @@ EXIT
 CHAIN
 IF ~InParty("Haerdalis")
 See("Haerdalis")
-!StateCheck("Haerdalis",STATE_SLEEPING)
+!StateCheck("Haerdalis",CD_STATE_NOTVALID)
 Global("AloraHaerTob1","GLOBAL",0)~ THEN BCMALO25 Alora_Haer25_1
 @44
 DO ~SetGlobal("AloraHaerTob1","GLOBAL",1)~
@@ -163,9 +163,9 @@ DO ~SetGlobal("AloraHaerTob1","GLOBAL",1)~
 EXIT
 
 CHAIN
-IF ~InParty("CMAlora")
-See("CMAlora")
-!StateCheck("CMAlora",STATE_SLEEPING)
+IF ~InParty("%CMALORA%")
+See("%CMALORA%")
+!StateCheck("%CMALORA%",CD_STATE_NOTVALID)
 Global("AloraHaerTob1","GLOBAL",1)
 Global("AloraHaerTob2","GLOBAL",0)~ THEN BHAERD25 Alora_Haer25_2
 @53
@@ -182,7 +182,7 @@ EXIT
 CHAIN
 IF ~InParty("Aerie")
 See("Aerie")
-!StateCheck("Aerie",STATE_SLEEPING)
+!StateCheck("Aerie",CD_STATE_NOTVALID)
 Global("AloraAerieTob1","GLOBAL",0)
 Global("babytalk","GLOBAL",0)
 Global("AerieRomanceActive","GLOBAL",2)~ THEN BCMALO25 Alora_Aerie25_1
@@ -195,7 +195,7 @@ EXIT
 CHAIN
 IF ~InParty("Aerie")
 See("Aerie")
-!StateCheck("Aerie",STATE_SLEEPING)
+!StateCheck("Aerie",CD_STATE_NOTVALID)
 Global("AloraAerieTob2","GLOBAL",0)
 Global("babytalk","GLOBAL",1)
 Global("AerieHadBaby","GLOBAL",0)
@@ -215,7 +215,7 @@ EXIT
 CHAIN
 IF ~InParty("Anomen")
 See("Anomen")
-!StateCheck("Anomen",STATE_SLEEPING)
+!StateCheck("Anomen",CD_STATE_NOTVALID)
 Global("AloraAnomenTob1","GLOBAL",0)
 Global("AnomenRomanceActive","GLOBAL",2)~ THEN BCMALO25 Alora_anomen25_1
 @73
@@ -225,9 +225,9 @@ DO ~SetGlobal("AloraAnomenTob1","GLOBAL",1)~
 EXIT
 
 CHAIN
-IF ~InParty("CMAlora")
-See("CMAlora")
-!StateCheck("CMAlora",STATE_SLEEPING)
+IF ~InParty("%CMALORA%")
+See("%CMALORA%")
+!StateCheck("%CMALORA%",CD_STATE_NOTVALID)
 Global("AloraEdwinTob1","GLOBAL",0)~ THEN BEDWIN25 Alora_Edwin25_1
 @75
 DO ~SetGlobal("AloraEdwinTob1","GLOBAL",1)~
@@ -240,7 +240,7 @@ EXIT
 CHAIN
 IF ~InParty("Edwin")
 See("Edwin")
-!StateCheck("Edwin",STATE_SLEEPING)
+!StateCheck("Edwin",CD_STATE_NOTVALID)
 AreaType(OUTDOOR)
 Global("AloraEdwinTob1","GLOBAL",1)
 Global("AloraEdwinTob2","GLOBAL",0)~ THEN BCMALO25 Alora_Edwin25_2
@@ -259,17 +259,17 @@ DO ~SetGlobal("AloraEdwinTob2","GLOBAL",1)~
 EXIT
 
 CHAIN
-IF ~InParty("CMAlora")
-See("CMAlora")
+IF ~InParty("%CMALORA%")
+See("%CMALORA%")
 CombatCounter(0)
-HPPercentLT("CMAlora",20)
-!HP("CMAlora",1)
-!StateCheck("CMAlora",STATE_SLEEPING)
+HPPercentLT("%CMALORA%",20)
+!HP("%CMALORA%",1)
+!StateCheck("%CMALORA%",CD_STATE_NOTVALID)
 Global("AloraEdwinTob2","GLOBAL",1)
 Global("AloraEdwinFinal","GLOBAL",0)~ THEN BEDWIN25 FinalConfession
 @91 DO ~SetGlobal("AloraEdwinFinal","GLOBAL",1)~
 == BCMALO25 @92
-== BEDWIN25 @93 DO ~ApplySpell("CMAlora",CLERIC_HEAL)~
+== BEDWIN25 @93 DO ~ApplySpell("%CMALORA%",CLERIC_HEAL)~
 == BCMALO25 @94
 == BEDWIN25 @95
 == BCMALO25 @96

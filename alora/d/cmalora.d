@@ -1,10 +1,9 @@
 BEGIN CMALORAJ
-BEGIN CMALORAD
 
 BEGIN CMALORA
 
 IF ~NumTimesTalkedTo(0)~ THEN BEGIN Heya 
-  SAY @0 
+  SAY @0
 	++ @1 + Forgot
 	++ @2 + Tricks
 END
@@ -43,7 +42,7 @@ IF ~NumTimesTalkedToGT(0)~ HelloAgain
 END
 
 
-BEGIN ~CMALORAP~
+BEGIN CMALORAP
 
 IF ~~ THEN BEGIN rejoin 
   SAY @13 

@@ -1,7 +1,7 @@
 IF
 	GlobalGT("AloraEdwinRF","GLOBAL",1)
-	Allegiance("CMAlora",ENEMY)
-	!StateCheck("CMAlora",STATE_CHARMED)
+	Allegiance("%CMALORA%",ENEMY)
+	!StateCheck("%CMALORA%",STATE_CHARMED)
 	InParty(Myself)
 THEN
 	RESPONSE #100
@@ -11,8 +11,8 @@ END
 
 IF
 	GlobalGT("AloraEdwinRF","GLOBAL",1)
-	Allegiance("CMAlora",ENEMY)
-	!StateCheck("CMAlora",STATE_CHARMED)
+	Allegiance("%CMALORA%",ENEMY)
+	!StateCheck("%CMALORA%",STATE_CHARMED)
 	Allegiance(Myself,NEUTRAL)
 	!InParty(Myself)
 THEN
@@ -22,18 +22,18 @@ END
 
 IF
 	InParty(Myself)
-	HPLT("CMAlora",15)
-	InParty("CMAlora")
-	Exists(LastAttackerOf("CMAlora"))
+	HPLT("%CMALORA%",15)
+	InParty("%CMALORA%")
+	Exists(LastAttackerOf("%CMALORA%"))
 THEN
 	RESPONSE #100
-		Attack(LastAttackerOf("CMAlora"))
+		Attack(LastAttackerOf("%CMALORA%"))
 END
 
 IF
 	InParty(Myself)
-	Dead("CMAlora")
+	Dead("%CMALORA%")
 THEN
 	RESPONSE #100
-		Attack(LastAttackerOf("CMAlora"))
+		Attack(LastAttackerOf("%CMALORA%"))
 END

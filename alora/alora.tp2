@@ -1,4 +1,4 @@
-BACKUP ~alora/backup~
+BACKUP ~weidu_external/alora/backup~
 //AUTHOR ~Raven~
 SUPPORT ~CoM at http://www.baldursgatemods.com/forums/index.php?board=13.0~
 VERSION ~2.1~
@@ -51,6 +51,8 @@ ALWAYS
 				infer_charsets = 1
 			STR_VAR
 				tra_path = EVAL ~%MOD_FOLDER%/lang~
+				out_path = EVAL ~weidu_external/%MOD_FOLDER%/lang/autotra~
+				iconv_path = EVAL ~%MOD_FOLDER%/lang/iconv~
 				noconvert_array = cm#noconvert
 				reload_array = cm#reload
 		END
@@ -60,7 +62,7 @@ ALWAYS
 END
 
 
-AUTO_TRA ~alora/lang/%s~
+AUTO_TRA ~weidu_external/alora/lang/autotra/%LANGUAGE%~
 
 LANGUAGE ~English~
          ~english~
@@ -82,6 +84,7 @@ LANGUAGE ~Polish (by Aristo)~
          ~polish~
          ~alora/lang/polish/setup.tra~
 
+
 /* ==================== *
  *  Alora NPC for BGII  *
  * ==================== */
@@ -89,6 +92,9 @@ BEGIN @0
 DESIGNATED 0 LABEL ~Raven-alora_npc_for_bg2~
 REQUIRE_PREDICATE GAME_INCLUDES ~tob~ @1  // ~You must have ToB, BGT, BG2:EE or EET installed to install the Alora NPC mod.~
 
+
+APPEND ~STATE.IDS~ ~0x80101FEF CD_STATE_NOTVALID~
+UNLESS ~CD_STATE_NOTVALID~
 
 /* ---------------------- *
  *  Installing soundsets  *
@@ -109,7 +115,6 @@ END ELSE BEGIN
 
 END
 
-
 /* ---------------------------------------- *
  *  Gwendolyne note: DEPRECATED as of v2.0  *
  *  Installing portraits                    *
@@ -121,20 +126,44 @@ COPY ~alora/portraits_%ee_file%~ ~override~*/
  *  Installing dialogues and scripts  *
  * ---------------------------------- */
 
+ACTION_IF GAME_IS ~eet~ BEGIN
+
+	OUTER_SPRINT "CMALORA" ~Alora~
+
+END ELSE BEGIN
+
+	OUTER_SPRINT "CMALORA" ~CMALORA~
+
+END
+
+ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+	OUTER_SPRINT "XEquipItem_sword" ~XEquipItem("SW1H09","%CMALORA%",SLOT_WEAPON1,EQUIP)~
+	OUTER_SPRINT "XEquipItem_armor" ~XEquipItem("LEAT05","%CMALORA%",SLOT_ARMOR,EQUIP)~
+END ELSE BEGIN
+	OUTER_SPRINT "XEquipItem_armor" ~ActionOverride("%CMALORA%",EquipItem("LEAT05"))~
+	OUTER_SPRINT "XEquipItem_sword" ~ActionOverride("%CMALORA%",EquipItem("SW1H09"))~
+END
+
+ACTION_IF GAME_IS ~eet~ BEGIN
+
+	EXTEND_BOTTOM ~ar0702.bcs~ ~alora/Baf/Continuous_alora.baf~ EVALUATE_BUFFER
+
+END
+
 // Compiling dialogues...
-COMPILE ~alora/d/alora25.d~
-COMPILE ~alora/d/bcmalor.d~
-COMPILE ~alora/d/cmalora.d~
-COMPILE ~alora/d/aloraint.d~
+COMPILE EVALUATE_BUFFER ~alora/d/alora25.d~
+COMPILE EVALUATE_BUFFER ~alora/d/bcmalor.d~
+COMPILE EVALUATE_BUFFER ~alora/d/cmalora.d~
+COMPILE EVALUATE_BUFFER ~alora/d/aloraint.d~
 
 // Compiling scripts...
-COMPILE ~alora/baf/cmalora.baf~
-COMPILE ~alora/baf/cmalo25.baf~
+COMPILE EVALUATE_BUFFER ~alora/baf/cmalora.baf~
+COMPILE EVALUATE_BUFFER ~alora/baf/cmalo25.baf~
 
-EXTEND_TOP    ~ar0702.bcs~ ~alora/baf/ucmg702.baf~
-EXTEND_TOP    ~ar6200.bcs~ ~alora/baf/alor6200.baf~
-EXTEND_BOTTOM ~edwin.bcs~  ~alora/baf/eddy.baf~
-EXTEND_BOTTOM ~edwi25.bcs~ ~alora/baf/eddy.baf~
+EXTEND_TOP    ~ar0702.bcs~ ~alora/baf/ucmg702.baf~ EVALUATE_BUFFER
+EXTEND_TOP    ~ar6200.bcs~ ~alora/baf/alor6200.baf~ EVALUATE_BUFFER
+EXTEND_BOTTOM ~edwin.bcs~  ~alora/baf/eddy.baf~ EVALUATE_BUFFER
+EXTEND_BOTTOM ~edwi25.bcs~ ~alora/baf/eddy.baf~ EVALUATE_BUFFER
 
 
 /* ---------- *
@@ -145,37 +174,12 @@ COPY ~alora/2da/cmalond1.2da~ ~override~
 BUT_ONLY
 
 
-/* ------------- *
- *  Fate Spirit  *
- * ------------- */
-ACTION_IF is_eet BEGIN
-	INCLUDE ~EET/other/EET_functions.tph~   // functions from EET mod
-	LAF ~EET_NPC_TRANSITION~
-		INT_VAR
-			type = 2                        // NPC is summon-able if met before
-			clean_ToB = 1
-		STR_VAR
-			dv = "CMAlora"                  // death variable of your NPC
-			override_SoA = "CMALORA"        // override script of your NPC (SoA)
-			override_ToB = "CMALO25"		// override script of your NPC (ToB)
-			dialog_ToB = "CMALO25A"         // joining dialogue for ToB
-			traFile = EVAL "alora/lang/%LANGUAGE%/alora25.tra"
-			string = "@0"                   // ~Bring me Alora, the happy-go-lucky thief.~
-			stringPosDV = "Anomen"
-			SummonedVar = "AloraSummoned"
-			clean_ToB_DV = "Alora"
-	END
-END ELSE BEGIN
-	INCLUDE ~%MOD_FOLDER%/lib/gw_dlg_functions.tpa~
-	COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/d/fatesp.d~ USING ~alora/lang/%LANGUAGE%/alora25.tra~
-END
-
-
 /* ---------------------- *
  *  Installing creatures  *
  * ---------------------- */
 COPY ~alora/cre/alora09.cre~ ~override~
 	SAY BIO @2
+	WRITE_ASCIIE DEATHVAR ~%CMALORA%~ (32) // Script name / Death variable
 	PATCH_IF is_ee BEGIN
 		WRITE_ASCII 0x34 ~aloram~ #8   // small portrait
 		WRITE_ASCII 0x3c ~aloral~ #8   // medium portrait
@@ -185,6 +189,7 @@ COPY ~alora/cre/alora09.cre~ ~override~
 	
 COPY ~alora/cre/alora25.cre~ ~override~
 	SAY BIO @2
+	WRITE_ASCIIE DEATHVAR ~%CMALORA%~ (32) // Script name / Death variable
 	PATCH_IF is_ee BEGIN
 		WRITE_ASCII 0x34 ~aloram~ #8   // small portrait
 		WRITE_ASCII 0x3c ~aloral~ #8   // medium portrait
@@ -193,8 +198,35 @@ COPY ~alora/cre/alora25.cre~ ~override~
 	REPLACE_CRE_ITEM ~RING05~ #0 #0 #0 ~identified~ ~Lring~
 
 
-// See below nuances for Tobex version ! (And look at ITEM_USE.2DA in Near Infinity)
+/* ------------- *
+ *  Fate Spirit  *
+ * ------------- */
+ACTION_IF is_eet BEGIN
+	INCLUDE ~EET/other/EET_functions.tph~   // functions from EET mod
+	LAF ~EET_NPC_TRANSITION~
+		INT_VAR
+			type = 2                        // NPC is summon-able if met before
+			default_ToB = 1					//controls if NPC should be spawnable in ToB when the game has been started in ToB (no by default - 0)
+			clean_ToB = 1
+		STR_VAR
+			dv = EVAL "%CMALORA%"                  // death variable of your NPC
+			override_SoA = "CMALORA"        // override script of your NPC (SoA)
+			override_ToB = "CMALO25"		// override script of your NPC (ToB)
+			dialog_ToB = "CMALO25A"         // joining dialogue for ToB
+			cre_ToB = "alora25"
+			traFile = EVAL "weidu_external/alora/lang/autotra/%LANGUAGE%/alora25.tra"
+			string = "@0"                   // ~Bring me Alora, the happy-go-lucky thief.~
+			stringPosDV = "Anomen"
+			SummonedVar = "AloraSummoned"
+			clean_ToB_DV = "Alora"
+	END
+END ELSE BEGIN
+	INCLUDE ~%MOD_FOLDER%/lib/gw_dlg_functions.tpa~
+		COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/d/fatesp.d~ USING ~weidu_external/alora/lang/autotra/%LANGUAGE%/alora25.tra~
+END
 
+
+// See below nuances for Tobex version ! (And look at ITEM_USE.2DA in Near Infinity)
 
 COPY ~alora/cre/CMSC88.itm~ ~override~
 	SAY NAME1 #10229
@@ -210,7 +242,7 @@ PRINT ~Item also for Alora BG2
 ~
 OUTER_SET use_her = RESOLVE_STR_REF (#270)
 OUTER_SET use_it = RESOLVE_STR_REF (#10219)
-APPEND ~ITEM_USE.2DA~ ~CMSC88   CMAlora      %use_it%      1          %use_her%~ UNLESS ~CMSC88~ 
+APPEND ~ITEM_USE.2DA~ ~CMSC88   %CMALORA%      %use_it%      1          %use_her%~ UNLESS ~CMSC88~ 
 
 END ELSE ACTION_IF (GAME_IS ~bgt~ AND MOD_IS_INSTALLED ~SETUP-TOBEX.TP2~ ~100~) BEGIN
 PRINT ~Bgt item description
@@ -220,7 +252,7 @@ PRINT ~Tobex is Installed
 PRINT ~Item also for Alora BG2
 ~
 OUTER_SET use_her = RESOLVE_STR_REF (#270)
-APPEND ~ITEM_USE.2DA~ ~CMSC88   CMAlora      -1      1          %use_her%~ UNLESS ~CMSC88~
+APPEND ~ITEM_USE.2DA~ ~CMSC88   %CMALORA%      -1      1          %use_her%~ UNLESS ~CMSC88~
 
 END
 
@@ -228,6 +260,10 @@ END
 /* ----------------- *
  *  Appending files  *
  * ----------------- */
-APPEND ~pdialog.2da~ ~CMALORA      CMALORAP           CMALORAJ          CMALORAD       CMALO25P           CMALO25J              CMALO25D              CMALO25~ UNLESS ~CMALORA~
 
-APPEND ~interdia.2da~ ~CMALORA     BCMALOR   BCMALO25~ UNLESS ~CMALORA~
+APPEND ~pdialog.2da~ ~%CMALORA%      CMALORAP           CMALORAJ          CMALORAD       CMALO25P           CMALO25J              CMALO25D              CMALO25~
+	UNLESS ~%CMALORA%~
+
+APPEND ~interdia.2da~ ~%CMALORA%     BCMALOR   BCMALO25~
+	UNLESS ~%CMALORA%~
+

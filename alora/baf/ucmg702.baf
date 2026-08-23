@@ -1,8 +1,13 @@
 IF
 	Global("CMAloraExists","AR0702",0)
+	!Exists("%CMALORA%")
+	!BeenInParty("%CMALORA%")
+	!Dead("%CMALORA%")
+	!InMyArea("%CMALORA%")
 THEN
 	RESPONSE #100
 		SetGlobal("CMAloraExists","AR0702",1)
+		SetGlobal("BG2_Alora","GLOBAL",1) // Block any dialog from BG1 and SoD
 		CreateCreature("ALORA09",[360.350],5)
         Continue()
 END

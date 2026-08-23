@@ -1,4 +1,16 @@
 IF
+	GlobalGT("Continuous_BG2_Alora","LOCALS",0)
+	Global("Continuous_BG2_Alora_XP","LOCALS",0)
+	InParty(Myself)
+    XPLT(Myself,128000)
+THEN
+    RESPONSE #100
+		SetGlobal("Continuous_BG2_Alora_XP","LOCALS",1)
+        AddXPObject(Myself,128000)
+		Continue()
+END
+
+IF
 	GlobalGT("AloraEdwinFR","GLOBAL",1)
 	!Dead("Edwin")
 	HPPercentLT("Edwin",30)

@@ -2,9 +2,9 @@ BEGIN ~CMALORAJ~
 
 
 /* CHAIN IF WEIGHT #-1
-~InParty("CMAlora")
-See("CMAlora")
-!StateCheck("CMAlora",STATE_SLEEPING)
+~InParty("%CMALORA%")
+See("%CMALORA%")
+!StateCheck("%CMALORA%",CD_STATE_NOTVALID)
 Global("AloraCousin","LOCALS",0)~ THEN CMALOCUS AloraQuest
 @0 DO ~SetGlobal("AloraCousin","LOCALS",1) SetGlobal("AloraCousinQuest","GLOBAL",1)~
 == CMALORAJ @1
