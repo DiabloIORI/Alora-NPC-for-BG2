@@ -9,6 +9,14 @@ Alora avait rejoint votre groupe pendant un certain temps après que vous l'ayez 
 // Epilogue
 @3    = ~Une fois les grandes aventures terminées, Alora a parcouru pendant un certain temps la Côte des Épées, à la recherche du sens de sa vie. Elle décida de retourner à Iriaèbor et d'essayer de se racheter auprès de sa famille. Elle a été accueillie à bras ouverts et est restée dans la ferme de ses parents. Mais au bout d'un certain temps, le virus du voyage l'a rattrapée. Elle a quitté sa famille une fois de plus et s'est rendue en Calimshan. On n'a plus entendu parler d'elle depuis lors, mais la rumeur veut qu'elle y dirige peut-être l'une des principales guildes de voleurs.~
 
+@4    = ~Alora NPC for BG2 (Original version)~
+
+// Continuous Alora for EET
+@100    = ~Ce mod n'est disponible que pour EET~
+@101    = ~Alora BG2 NPC Continuous (Necessite d'installer le mod "Continuous_End" juste avant ou juste apres EET_End).~
+@102    = ~Si vous souhaitez que Alora soit continuous ce composant doit etre installe avant le mod Continuous_End~
+
+
 
 /* =============== *
  *  WeiDU prompts  *

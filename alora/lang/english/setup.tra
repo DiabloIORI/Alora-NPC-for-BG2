@@ -8,3 +8,10 @@ Alora had joined your party for a time after you caught her stealing from the Ha
 
 // Epilogue
 @3    = ~After the grand adventures were over with, Alora wondered around the Sword Coast for a time, searching for the meaning of her life. She decided to return to Iriaebor and try to make amends with her family. She was welcomed back with open arms and stayed at her parent's farm. But after a while the traveling bug got to her. She left her family once again and traveled to Calimshan. She has not been heard from since then, but rumor has it she may be leading one of the top thief guilds there.~
+
+@4    = ~Alora NPC for BG2 (Original version)~
+
+// Continuous Alora for EET
+@100    = ~EET installed to install the Alora NPC mod.~
+@101    = ~Alora NPC for BG2 Continuous (Requires to install Continuous_End mod along EET_End).~
+@102    = ~If you wish for Alora to be continuous, this component must be installed before Continuous_End mod.~

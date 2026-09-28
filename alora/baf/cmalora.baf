@@ -2,7 +2,7 @@ IF
 	GlobalGT("Continuous_BG2_Alora","LOCALS",0)
 	Global("Continuous_BG2_Alora_XP","LOCALS",0)
 	InParty(Myself)
-    XPLT(Myself,128000)
+    XPLT(Myself,10000)
 THEN
     RESPONSE #100
 		SetGlobal("Continuous_BG2_Alora_XP","LOCALS",1)

@@ -9,6 +9,14 @@ Alora schloß sich für eine Weile Eurer Gruppe an, nachdem ihr sie beim Stehlen i
 // Epilogue
 @3    = ~Nachdem die großen Abenteuer mit Alora überstanden waren, trieb sie sich ein Weile an der Schwertküste herum und suchte nach der Bestimmung ihres Lebens. Sie entschied sich, nach Iriaebor zurückzukehren und versuchte, sich mit ihrer Familie zu versöhnen. Sie wurde mit offenen Armen empfangen und blieb bei der Farm ihrer Eltern. Nach einiger Zeit packte sie das Reisefieber wieder. Sie verließ erneut ihre Familie und begab sich nach Calimshafen. Von da an wurde nichts mehr von ihr gehört, aber Gerüchte besagen, dass sie dort eine der besten Diebesgilden anführt.~
 
+@4    = ~Alora NPC for BG2 (Original version)~
+
+// Continuous Alora for EET
+@100    = ~EET installed to install the Alora NPC mod.~
+@101    = ~Alora NPC for BG2 Continuous (Requires to install Continuous_End mod along EET_End).~
+@102    = ~If you wish for Alora to be continuous, this component must be installed before Continuous_End mod.~
+
+
 
 // WeiDU prompts
 // -------------

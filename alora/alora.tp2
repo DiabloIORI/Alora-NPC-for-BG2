@@ -1,7 +1,7 @@
 BACKUP ~weidu_external/alora/backup~
 //AUTHOR ~Raven~
-SUPPORT ~CoM at http://www.baldursgatemods.com/forums/index.php?board=13.0~
-VERSION ~2.1~
+SUPPORT ~https://github.com/The-Gate-Project/Alora-NPC-for-BG2/issues~ /* CoM at http://www.baldursgatemods.com/forums/index.php?board=13.0 */
+VERSION ~2.2~
 
 README ~alora/readme/alora-readme-%LANGUAGE%.html~ ~alora/readme/alora-readme.html~
 
@@ -90,180 +90,27 @@ LANGUAGE ~Polish (by Aristo)~
  * ==================== */
 BEGIN @0
 DESIGNATED 0 LABEL ~Raven-alora_npc_for_bg2~
+SUBCOMPONENT @0
 REQUIRE_PREDICATE GAME_INCLUDES ~tob~ @1  // ~You must have ToB, BGT, BG2:EE or EET installed to install the Alora NPC mod.~
-
-
-APPEND ~STATE.IDS~ ~0x80101FEF CD_STATE_NOTVALID~
-UNLESS ~CD_STATE_NOTVALID~
-
-/* ---------------------- *
- *  Installing soundsets  *
- * ---------------------- */
-ACTION_IF NOT is_eet AND NOT is_bgt BEGIN
-
-	LAF HANDLE_AUDIO
-		STR_VAR
-			audio_path  = EVAL ~alora/audio/%LANGUAGE%~
-			oggdec_path = ~alora/audio~
-			sox_path    = ~alora/audio~
-	END
-
-END ELSE BEGIN
-
-	// Installing Edwin sound clip
-	COPY_EXISTING ~%EDWIN30%.wav~ ~override/gedwin0.wav~
-
-END
-
-/* ---------------------------------------- *
- *  Gwendolyne note: DEPRECATED as of v2.0  *
- *  Installing portraits                    *
- * ---------------------------------------- *
-COPY ~alora/portraits_%ee_file%~ ~override~*/
-
-
-/* ---------------------------------- *
- *  Installing dialogues and scripts  *
- * ---------------------------------- */
-
-ACTION_IF GAME_IS ~eet~ BEGIN
-
-	OUTER_SPRINT "CMALORA" ~Alora~
-
-END ELSE BEGIN
 
 	OUTER_SPRINT "CMALORA" ~CMALORA~
 
-END
+		INCLUDE ~alora/Lib/Main_Alora.tph~
 
-ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+/* ==================== *
+ *  Alora NPC for BGII  *
+ * ==================== */
+BEGIN @101 /* Alora NPC for BG2 Continuous (Requires to install .... mod along EET_End). */
+DESIGNATED 1 LABEL ~Raven-alora_npc_Continuous~
+SUBCOMPONENT @0
+REQUIRE_PREDICATE GAME_IS ~eet~ @100 // ~You must have EET installed to install the Alora NPC mod.~
+REQUIRE_PREDICATE NOT MOD_IS_INSTALLED ~Continuous_End.TP2~ ~0~ @102 // ~You must have EET installed to install the Alora NPC mod.~
+
+	OUTER_SPRINT "CMALORA" ~Alora~
 	OUTER_SPRINT "XEquipItem_sword" ~XEquipItem("SW1H09","%CMALORA%",SLOT_WEAPON1,EQUIP)~
 	OUTER_SPRINT "XEquipItem_armor" ~XEquipItem("LEAT05","%CMALORA%",SLOT_ARMOR,EQUIP)~
-END ELSE BEGIN
-	OUTER_SPRINT "XEquipItem_armor" ~ActionOverride("%CMALORA%",EquipItem("LEAT05"))~
-	OUTER_SPRINT "XEquipItem_sword" ~ActionOverride("%CMALORA%",EquipItem("SW1H09"))~
-END
-
-ACTION_IF GAME_IS ~eet~ BEGIN
 
 	EXTEND_BOTTOM ~ar0702.bcs~ ~alora/Baf/Continuous_alora.baf~ EVALUATE_BUFFER
 
-END
-
-// Compiling dialogues...
-COMPILE EVALUATE_BUFFER ~alora/d/alora25.d~
-COMPILE EVALUATE_BUFFER ~alora/d/bcmalor.d~
-COMPILE EVALUATE_BUFFER ~alora/d/cmalora.d~
-COMPILE EVALUATE_BUFFER ~alora/d/aloraint.d~
-
-// Compiling scripts...
-COMPILE EVALUATE_BUFFER ~alora/baf/cmalora.baf~
-COMPILE EVALUATE_BUFFER ~alora/baf/cmalo25.baf~
-
-EXTEND_TOP    ~ar0702.bcs~ ~alora/baf/ucmg702.baf~ EVALUATE_BUFFER
-EXTEND_TOP    ~ar6200.bcs~ ~alora/baf/alor6200.baf~ EVALUATE_BUFFER
-EXTEND_BOTTOM ~edwin.bcs~  ~alora/baf/eddy.baf~ EVALUATE_BUFFER
-EXTEND_BOTTOM ~edwi25.bcs~ ~alora/baf/eddy.baf~ EVALUATE_BUFFER
-
-
-/* ---------- *
- *  Epilogue  *
- * ---------- */
-COPY ~alora/2da/cmalond1.2da~ ~override~
-	REPLACE ~99999~ @3
-BUT_ONLY
-
-
-/* ---------------------- *
- *  Installing creatures  *
- * ---------------------- */
-COPY ~alora/cre/alora09.cre~ ~override~
-	SAY BIO @2
-	WRITE_ASCIIE DEATHVAR ~%CMALORA%~ (32) // Script name / Death variable
-	PATCH_IF is_ee BEGIN
-		WRITE_ASCII 0x34 ~aloram~ #8   // small portrait
-		WRITE_ASCII 0x3c ~aloral~ #8   // medium portrait
-	END
-	REPLACE_CRE_ITEM ~CMSC88~ #0 #0 #0 ~identified~ ~Rring~
-	REPLACE_CRE_ITEM ~RING10~ #0 #0 #0 ~identified~ ~Lring~
-	
-COPY ~alora/cre/alora25.cre~ ~override~
-	SAY BIO @2
-	WRITE_ASCIIE DEATHVAR ~%CMALORA%~ (32) // Script name / Death variable
-	PATCH_IF is_ee BEGIN
-		WRITE_ASCII 0x34 ~aloram~ #8   // small portrait
-		WRITE_ASCII 0x3c ~aloral~ #8   // medium portrait
-	END
-	REPLACE_CRE_ITEM ~CMSC88~ #0 #0 #0 ~identified~ ~Rring~
-	REPLACE_CRE_ITEM ~RING05~ #0 #0 #0 ~identified~ ~Lring~
-
-
-/* ------------- *
- *  Fate Spirit  *
- * ------------- */
-ACTION_IF is_eet BEGIN
-	INCLUDE ~EET/other/EET_functions.tph~   // functions from EET mod
-	LAF ~EET_NPC_TRANSITION~
-		INT_VAR
-			type = 2                        // NPC is summon-able if met before
-			default_ToB = 1					//controls if NPC should be spawnable in ToB when the game has been started in ToB (no by default - 0)
-			clean_ToB = 1
-		STR_VAR
-			dv = EVAL "%CMALORA%"                  // death variable of your NPC
-			override_SoA = "CMALORA"        // override script of your NPC (SoA)
-			override_ToB = "CMALO25"		// override script of your NPC (ToB)
-			dialog_ToB = "CMALO25A"         // joining dialogue for ToB
-			cre_ToB = "alora25"
-			traFile = EVAL "weidu_external/alora/lang/autotra/%LANGUAGE%/alora25.tra"
-			string = "@0"                   // ~Bring me Alora, the happy-go-lucky thief.~
-			stringPosDV = "Anomen"
-			SummonedVar = "AloraSummoned"
-			clean_ToB_DV = "Alora"
-	END
-END ELSE BEGIN
-	INCLUDE ~%MOD_FOLDER%/lib/gw_dlg_functions.tpa~
-		COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/d/fatesp.d~ USING ~weidu_external/alora/lang/autotra/%LANGUAGE%/alora25.tra~
-END
-
-
-// See below nuances for Tobex version ! (And look at ITEM_USE.2DA in Near Infinity)
-
-COPY ~alora/cre/CMSC88.itm~ ~override~
-	SAY NAME1 #10229
-	SAY NAME2 #10229
-    SAY UNIDENTIFIED_DESC #10231
-    SAY DESC #10231
-
-
-ACTION_IF (GAME_IS ~bg2ee eet~) BEGIN
-PRINT ~EE item description
-~
-PRINT ~Item also for Alora BG2
-~
-OUTER_SET use_her = RESOLVE_STR_REF (#270)
-OUTER_SET use_it = RESOLVE_STR_REF (#10219)
-APPEND ~ITEM_USE.2DA~ ~CMSC88   %CMALORA%      %use_it%      1          %use_her%~ UNLESS ~CMSC88~ 
-
-END ELSE ACTION_IF (GAME_IS ~bgt~ AND MOD_IS_INSTALLED ~SETUP-TOBEX.TP2~ ~100~) BEGIN
-PRINT ~Bgt item description
-~
-PRINT ~Tobex is Installed
-~
-PRINT ~Item also for Alora BG2
-~
-OUTER_SET use_her = RESOLVE_STR_REF (#270)
-APPEND ~ITEM_USE.2DA~ ~CMSC88   %CMALORA%      -1      1          %use_her%~ UNLESS ~CMSC88~
-
-END
-
-
-/* ----------------- *
- *  Appending files  *
- * ----------------- */
-
-APPEND ~pdialog.2da~ ~%CMALORA%      CMALORAP           CMALORAJ          CMALORAD       CMALO25P           CMALO25J              CMALO25D              CMALO25~
-	UNLESS ~%CMALORA%~
-
-APPEND ~interdia.2da~ ~%CMALORA%     BCMALOR   BCMALO25~
-	UNLESS ~%CMALORA%~
+		INCLUDE ~alora/Lib/Main_Alora.tph~
 

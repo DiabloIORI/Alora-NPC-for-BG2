@@ -8,3 +8,11 @@
 
 // Epilogue
 @3 = ~После того как великие приключения закончились, Алора некоторое время путешествовала по Побережью Меча в поисках смысла своей жизни. Она решила вернуться в Ириэбор и попытаться помириться с семьей. Её приняли с распростёртыми объятиями, и она осталась жить на ферме родителей. Но через какое-то время её снова охватила тяга к путешествиям. Она покинула семью и отправилась в Калимшан. С тех пор о ней ничего не слышно, но ходили слухи, что возможно, она возглавляет одну из сильнейших воровских гильдий.~
+
+@4    = ~Alora NPC for BG2 (Original version)~
+
+// Continuous Alora for EET
+@100    = ~EET installed to install the Alora NPC mod.~
+@101    = ~Alora NPC for BG2 Continuous (Requires to install Continuous_End mod along EET_End).~
+@102    = ~If you wish for Alora to be continuous, this component must be installed before Continuous_End mod.~
+

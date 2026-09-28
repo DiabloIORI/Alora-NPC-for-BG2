@@ -5,3 +5,11 @@
 Alora do³¹czy³a na pewien czas do twojej dru¿yny po tym, jak zosta³a przez ciebie przy³apana na kradzie¿y w Komnacie Cudów. Po pewnym czasie od³¹czy³a siê od dru¿yny, by szukaæ przygód na w³asn¹ rêkê. Od dnia waszego rozstania podró¿owa³a do wielu miast i miasteczek. Ostatecznie trafi³a do Amn, gdzie podjê³a siê typowej dla niej dzia³alnoœci.
 ~ 
 @3 = ~Po tym, jak wielkie przygody dobieg³y koñca, Alora wêdrowa³a przez jakiœ czas po Wybrze¿u Mieczy, próbuj¹c znaleŸæ jakiœ cel w ¿yciu. Postanowi³a wróciæ do Iriaebor i spróbowaæ pojednaæ siê z rodzin¹. Powitano j¹ z otwartymi ramionami i pozosta³a jakiœ czas na farmie rodziców. Nastêpnie, powodowana chêci¹ podró¿owania, znów opuœci³a rodzinê i uda³a siê do Calimshanu. Od tamtej chwili ju¿ o niej nie s³yszano, ale plotki g³osz¹, ¿e mo¿e przewodziæ jednej z tamtejszych gildii z³odziejskich.~
+
+@4    = ~Alora NPC for BG2 (Original version)~
+
+// Continuous Alora for EET
+@100    = ~EET installed to install the Alora NPC mod.~
+@101    = ~Alora NPC for BG2 Continuous (Requires to install Continuous_End mod along EET_End).~
+@102    = ~If you wish for Alora to be continuous, this component must be installed before Continuous_End mod.~
+
