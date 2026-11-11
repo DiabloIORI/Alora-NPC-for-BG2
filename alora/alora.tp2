@@ -84,6 +84,9 @@ LANGUAGE ~Polish (by Aristo)~
          ~polish~
          ~alora/lang/polish/setup.tra~
 
+LANGUAGE ~Schinese~
+         ~schinese~
+         ~alora/lang/schinese/setup.tra~
 
 /* ==================== *
  *  Alora NPC for BGII  *
